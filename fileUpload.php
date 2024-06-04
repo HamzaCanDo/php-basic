@@ -19,6 +19,14 @@ if (isset($_FILES['photo'])) {
     exit;
   }
 
+ 
+  
+    if ($_FILES['photo']['size'] > 500) {
+      echo 'File Size Should Be Less Then 500kb';
+      exit;
+    }
+  
+
   // Move the uploaded file
   $uploadResult = move_uploaded_file($_FILES['photo']['tmp_name'], 'uploads/' . $_FILES['photo']['name']);
 
@@ -39,4 +47,3 @@ if (isset($_FILES['photo'])) {
   
 </body>
 </html>
-
